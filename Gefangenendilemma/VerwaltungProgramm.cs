@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Gefangenendilemma.Basis;
 
 namespace Gefangenendilemma
@@ -21,7 +22,8 @@ namespace Gefangenendilemma
         {
             "Einfaches Verhör zwischen zwei Strategien",
             "9-Spiele Verhör zwischen zwei Strategien",
-            "Einfaches Verhör zwischen dem Benutzer und einer Strategie"
+            "Einfaches Verhör zwischen dem Benutzer und einer Strategie",
+            "Turnier mit allen Strategien"
         };
 
         /// <summary>
@@ -110,6 +112,10 @@ namespace Gefangenendilemma
                         VerhörMitBenutzer();
                         WriteTrennstrich();
                         break;
+                    case "3":
+                        Turnier();
+                        WriteTrennstrich();
+                        break;
                     case "X":
                         break;
                     default:
@@ -120,7 +126,7 @@ namespace Gefangenendilemma
         }
 
         /// <summary>
-        /// Diese Methode startet ein einfaches Verhör zwischen zwei Strategien
+        /// Diese Methode verwaltet ein einfaches Verhör zwischen zwei Strategien
         /// </summary>
         static void VerhörEinfach()
         {
@@ -151,11 +157,12 @@ namespace Gefangenendilemma
             Verhoer2Strategien(strategie1, strategie2, runde, schwere, ref punkte1, ref punkte2);
 
             // Ausgabe des Siegers
+            WriteLeerzeile();
             Siegerehrung(strategie1.Name(), strategie2.Name(), punkte1, punkte2);
         }
 
         /// <summary>
-        /// Diese Methode startet ein 9-Spiele Verhör zwischen zwei Strategien
+        /// Diese Methode verwaltet ein 9-Spiele Verhör zwischen zwei Strategien
         /// </summary>
         static void Verhör9Spiele()
         {
@@ -178,25 +185,110 @@ namespace Gefangenendilemma
             WriteTrennstrich();
 
             // 9 Spiele Verhör starten
-            int gesamtPunkte1 = 0, gesamtPunkte2 = 0;
-            for (int i = 0; i < 9; i++)
-            {
-                int punkte1 = 0, punkte2 = 0;
-                Verhoer2Strategien(strategie1, strategie2, verhör9SpieleVerteilung[i, 1], verhör9SpieleVerteilung[i, 0], ref punkte1, ref punkte2);
-                gesamtPunkte1 += punkte1;
-                gesamtPunkte2 += punkte2;
-
-                Console.WriteLine($"   '{strategie1.Name()}': {punkte1} Punkte (Gesamtpunkte: {gesamtPunkte1})");
-                Console.WriteLine($"   '{strategie2.Name()}': {punkte2} Punkte (Gesamtpunkte: {gesamtPunkte2})");
-            }
+            int punkte1 = 0, punkte2 = 0;
+            Verhör9Spiele(strategie1, strategie2, ref punkte1, ref punkte2);
 
             // Ausgabe des Siegers
             WriteLeerzeile();
-            Siegerehrung(strategie1.Name(), strategie2.Name(), gesamtPunkte1, gesamtPunkte2);
+            Siegerehrung(strategie1.Name(), strategie2.Name(), punkte1, punkte2);
         }
 
         /// <summary>
-        /// Diese Methode startet ein Verhör zwischen dem Benutzer und einer Strategie
+        /// Startet ein 9-Spiele Verhör zwischen der Strategie an der Position strategie1 und Position strategie2
+        /// </summary>
+        /// <param name="strategie1">Erste Strategie</param>
+        /// <param name="strategie2">Zweite Strategie</param>
+        /// <param name="gesamtPunkte1">Punkte der ersten Strategie</param>
+        /// <param name="gesamtPunkte2">Punkte der zweiten Strategie</param>
+        static void Verhör9Spiele(BasisStrategie strategie1, BasisStrategie strategie2, ref int gesamtPunkte1, ref int gesamtPunkte2)
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                int punkte1 = 0, punkte2 = 0, endPunkte1 = 0, endPunkte2 = 0;
+                int schwere = verhör9SpieleVerteilung[i, 0];
+                int runden = verhör9SpieleVerteilung[i, 1];
+                Verhoer2Strategien(strategie1, strategie2, runden, schwere, ref punkte1, ref punkte2);
+
+                if (runden == 5)
+                {
+                    endPunkte1 = punkte1 * 20;
+                    endPunkte2 = punkte2 * 20;
+                    gesamtPunkte1 += endPunkte1;
+                    gesamtPunkte2 += endPunkte2;
+                    Console.WriteLine($"   '{strategie1.Name()}': {punkte1} x 20 = {endPunkte1} Punkte (Gesamtpunkte: {gesamtPunkte1})");
+                    Console.WriteLine($"   '{strategie2.Name()}': {punkte2} x 20 = {endPunkte2} Punkte (Gesamtpunkte: {gesamtPunkte2})");
+                }
+                else if (runden == 25)
+                {
+                    endPunkte1 = punkte1 * 4;
+                    endPunkte2 = punkte2 * 4;
+                    gesamtPunkte1 += endPunkte1;
+                    gesamtPunkte2 += endPunkte2;
+                    Console.WriteLine($"   '{strategie1.Name()}': {punkte1} x 4 = {endPunkte1} Punkte (Gesamtpunkte: {gesamtPunkte1})");
+                    Console.WriteLine($"   '{strategie2.Name()}': {punkte2} x 4 = {endPunkte2} Punkte (Gesamtpunkte: {gesamtPunkte2})");
+                } else
+                {
+                    gesamtPunkte1 += punkte1;
+                    gesamtPunkte2 += punkte2;
+                    Console.WriteLine($"   '{strategie1.Name()}': {punkte1} x 1 = {punkte1} Punkte (Gesamtpunkte: {gesamtPunkte1})");
+                    Console.WriteLine($"   '{strategie2.Name()}': {punkte2} x 1 = {punkte2} Punkte (Gesamtpunkte: {gesamtPunkte2})");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Startet ein Verhör zwischen der Strategie an der Position strategie1 und Position strategie2 über die Länge von runden und der Schwere schwere
+        /// </summary>
+        /// <param name="strategie1">Erste Strategie</param>
+        /// <param name="strategie1">Zweite Strategie</param>
+        /// <param name="runden">Rundenanzahl</param>
+        /// <param name="schwere">Schwere der Verstöße (0=Leicht, 1=Mittel, 2=Schwer) </param>
+        /// <param name="punkte1">Punkte der ersten Strategie</param>
+        /// <param name="punkte1">Punkte der zweiten Strategie</param>
+        static void Verhoer2Strategien(BasisStrategie strategie1, BasisStrategie strategie2, int runden, int schwere, ref int punkte1, ref int punkte2)
+        {
+            // Ausgabe der Verhörfaktoren (Rundenanzahl, etc.) bevor das Verhör startet.
+            string schwereTxt;
+            switch (schwere)
+            {
+                case 0:
+                    schwereTxt = "Leichte Verstöße";
+                    break;
+                case 1:
+                    schwereTxt = "Mittlere Verstöße";
+                    break;
+                default:
+                    schwereTxt = "Schwere Verstöße";
+                    break;
+            }
+            Console.WriteLine($"{schwereTxt}, {runden} "+ (runden == 1 ? "Runde":"Runden") + $" zwischen '{strategie1.Name()}' und '{strategie2.Name()}'");
+
+            // setzt Startwerte
+            int reaktion1 = BasisStrategie.NochNichtVerhoert;
+            int reaktion2 = BasisStrategie.NochNichtVerhoert;
+
+            //beide Strategien über den Start informieren (Also es wird die Startmethode aufgerufen)
+            strategie1.Start(runden, schwere);
+            strategie2.Start(runden, schwere);
+
+            //Start der Verhöre
+            for (int i = 0; i < runden; i++)
+            {
+                //Beide Strategien werden verhört
+                int aktReaktion1 = strategie1.Verhoer(reaktion2);
+                int aktReaktion2 = strategie2.Verhoer(reaktion1);
+
+                //Punkte werden berechnet
+                VerhoerPunkte(schwere, aktReaktion1, aktReaktion2, ref punkte1, ref punkte2);
+                
+                //Reaktion für den nächsten Durchlauf merken
+                reaktion1 = aktReaktion1;
+                reaktion2 = aktReaktion2;
+            }
+        }
+
+        /// <summary>
+        /// Diese Methode verwaltet ein Verhör zwischen dem Benutzer und einer gegnerischen Strategie
         /// </summary>
         static void VerhörMitBenutzer()
         {
@@ -249,51 +341,82 @@ namespace Gefangenendilemma
         }
 
         /// <summary>
-        /// Startet ein Verhör zwischen der Strategie an der Position st1 und Position st2 über die Länge von runden und der Schwere schwere
+        /// Diese Methode verwaltet ein Turnier zwischen allen Strategien
         /// </summary>
-        /// <param name="strategie1">Erste Strategie</param>
-        /// <param name="strategie1">Zweite Strategie</param>
-        /// <param name="runden">Rundenanzahl</param>
-        /// <param name="schwere">Schwere der Verstöße (0=Leicht, 1=Mittel, 2=Schwer) </param>
-        static void Verhoer2Strategien(BasisStrategie strategie1, BasisStrategie strategie2, int runden, int schwere, ref int punkte1, ref int punkte2)
+        static void Turnier()
         {
-            // Ausgabe der Verhörfaktoren (Rundenanzahl, etc.) bevor das Verhör startet.
-            string schwereTxt;
-            switch (schwere)
+            // Überschrift
+            WriteTrennstrich();
+            Console.WriteLine(spielModi[3]);
+            WriteTrennstrich();
+
+            // Strategien holen
+            BasisStrategie strategie1 = _strategien[0];
+            BasisStrategie strategie2 = _strategien[1];
+            BasisStrategie strategie3 = _strategien[2];
+            BasisStrategie strategie4 = _strategien[3];
+
+            // Turnier starten (jeder gegen jeden)
+            int gesamtPunkte1 = 0, gesamtPunkte2 = 0, gesamtPunkte3 = 0, gesamtPunkte4 = 0;
+
+            int punkte1 = 0, punkte2 = 0, punkte3 = 0, punkte4 = 0;
+            Console.WriteLine($"[SPIEL 1/6] {strategie1.Name()} vs. {strategie2.Name()}");
+            Verhör9Spiele(strategie1, strategie2, ref punkte1, ref punkte2);
+            gesamtPunkte1 += punkte1;
+            gesamtPunkte2 += punkte2;
+            WriteLeerzeile();
+
+            punkte1 = 0; punkte2 = 0; punkte3 = 0; punkte4 = 0;
+            Console.WriteLine($"[SPIEL 2/6] {strategie3.Name()} vs. {strategie4.Name()}");
+            Verhör9Spiele(strategie3, strategie4, ref punkte3, ref punkte4);
+            gesamtPunkte3 += punkte3;
+            gesamtPunkte4 += punkte4;
+            WriteLeerzeile();
+
+            punkte1 = 0; punkte2 = 0; punkte3 = 0; punkte4 = 0;
+            Console.WriteLine($"[SPIEL 3/6] {strategie1.Name()} vs. {strategie3.Name()}");
+            Verhör9Spiele(strategie1, strategie3, ref punkte1, ref punkte3);
+            gesamtPunkte1 += punkte1;
+            gesamtPunkte3 += punkte3;
+            WriteLeerzeile();
+
+            punkte1 = 0; punkte2 = 0; punkte3 = 0; punkte4 = 0;
+            Console.WriteLine($"[SPIEL 4/6] {strategie2.Name()} vs. {strategie4.Name()}");
+            Verhör9Spiele(strategie2, strategie4, ref punkte2, ref punkte4);
+            gesamtPunkte2 += punkte2;
+            gesamtPunkte4 += punkte4;
+            WriteLeerzeile();
+
+            punkte1 = 0; punkte2 = 0; punkte3 = 0; punkte4 = 0;
+            Console.WriteLine($"[SPIEL 5/6] {strategie4.Name()} vs. {strategie1.Name()}");
+            Verhör9Spiele(strategie4, strategie1, ref punkte4, ref punkte1);
+            gesamtPunkte4 += punkte4;
+            gesamtPunkte1 += punkte1;
+            WriteLeerzeile();
+
+            punkte1 = 0; punkte2 = 0; punkte3 = 0; punkte4 = 0;
+            Console.WriteLine($"[SPIEL 6/6] {strategie3.Name()} vs. {strategie2.Name()}");
+            Verhör9Spiele(strategie3, strategie2, ref punkte3, ref punkte2);
+            gesamtPunkte3 += punkte3;
+            gesamtPunkte2 += punkte2;
+            WriteLeerzeile();
+
+            // Ausgabe der Rangliste
+            Console.WriteLine("Siegerehrung");
+            Dictionary<BasisStrategie, int> rangliste = new Dictionary<BasisStrategie, int>();
+            rangliste.Add(strategie1, gesamtPunkte1);
+            rangliste.Add(strategie2, gesamtPunkte2);
+            rangliste.Add(strategie3, gesamtPunkte3);
+            rangliste.Add(strategie4, gesamtPunkte4);
+
+            List<KeyValuePair<BasisStrategie, int>> ranglisteList = rangliste.ToList();
+            ranglisteList.Sort((pair1, pair2) => pair1.Value.CompareTo(pair2.Value));
+
+            int platz = 1;
+            foreach (KeyValuePair<BasisStrategie, int> rang in rangliste)
             {
-                case 0:
-                    schwereTxt = "Leichte Verstöße";
-                    break;
-                case 1:
-                    schwereTxt = "Mittlere Verstöße";
-                    break;
-                default:
-                    schwereTxt = "Schwere Verstöße";
-                    break;
-            }
-            Console.WriteLine($"{schwereTxt}, {runden} "+ (runden == 1 ? "Runde":"Runden") + " zwischen '{strategie1.Name()}' und '{strategie2.Name()}'");
-
-            // setzt Startwerte
-            int reaktion1 = BasisStrategie.NochNichtVerhoert;
-            int reaktion2 = BasisStrategie.NochNichtVerhoert;
-
-            //beide Strategien über den Start informieren (Also es wird die Startmethode aufgerufen)
-            strategie1.Start(runden, schwere);
-            strategie2.Start(runden, schwere);
-
-            //Start der Verhöre
-            for (int i = 0; i < runden; i++)
-            {
-                //Beide Strategien werden verhört
-                int aktReaktion1 = strategie1.Verhoer(reaktion2);
-                int aktReaktion2 = strategie2.Verhoer(reaktion1);
-
-                //Punkte werden berechnet
-                VerhoerPunkte(schwere, aktReaktion1, aktReaktion2, ref punkte1, ref punkte2);
-                
-                //Reaktion für den nächsten Durchlauf merken
-                reaktion1 = aktReaktion1;
-                reaktion2 = aktReaktion2;
+                Console.WriteLine($"   Platz {platz}: Strategie '{rang.Key.Name()}' mit {rang.Value} Punkten");
+                platz++;
             }
         }
 
@@ -329,6 +452,30 @@ namespace Gefangenendilemma
         }
 
         /// <summary>
+        /// Diese Methode ermittelt die Siegerstrategie und gibt den Sieger aus.
+        /// </summary>
+        /// <param name="strategie1">Name der ersten Strategie</param>
+        /// <param name="strategie2">Name der zweiten Strategie</param>
+        /// <param name="punkte1">Punkte der ersten Strategie</param>
+        /// <param name="punkte2">Punkte der zweiten Strategie</param>
+        static void Siegerehrung(string strategie1Name, string strategie2Name, int punkte1, int punkte2)
+        {
+            Console.WriteLine("Siegerehrung");
+            Console.WriteLine($"   '{strategie1Name}' hat insgesamt {punkte1} Punkte.");
+            Console.WriteLine($"   '{strategie2Name}' hat insgesamt {punkte2} Punkte.");
+            WriteLeerzeile();
+
+            if (punkte1 == punkte2)
+            {
+                Console.WriteLine("UNENTSCHIEDEN zwischen beiden Strategien!");
+            }
+            else
+            {
+                Console.WriteLine("SIEGER: Strategie '{0}'", (punkte1 < punkte2 ? strategie1Name : strategie2Name));
+            }
+        }
+
+        /// <summary>
         /// Diese Methode gibt dem Benutzer die Möglichkeit, zwei Strategien auszuwählen.
         /// </summary>
         /// <param name="st1">Id der ersten Strategie</param>
@@ -349,11 +496,11 @@ namespace Gefangenendilemma
         /// <param name="st1">Id der Strategie</param>
         static void StrategieAuswahl(ref int st1)
         {
-            Console.WriteLine("Bitte wähle 1 Strategie:");
+            Console.WriteLine("Bitte wähle eine gegnerische Strategie:");
             WriteStrategien();
             WriteLeerzeile();
 
-            st1 = VerwaltungKram.EingabeZahlMinMax("1. Strategie: ", 0, _strategien.Count);
+            st1 = VerwaltungKram.EingabeZahlMinMax("Gegnerische Strategie: ", 0, _strategien.Count);
         }
 
         /// <summary>
@@ -364,30 +511,6 @@ namespace Gefangenendilemma
             for (int i = 0; i < _strategien.Count; i++)
             {
                 Console.WriteLine($"{i} - {_strategien[i].Name()}");
-            }
-        }
-
-        /// <summary>
-        /// Diese Methode ermittelt die Siegerstrategie und gibt den Sieger aus.
-        /// </summary>
-        /// <param name="strategie1"></param>
-        /// <param name="strategie2"></param>
-        /// <param name="punkte1"></param>
-        /// <param name="punkte2"></param>
-        static void Siegerehrung(string strategie1Name, string strategie2Name, int punkte1, int punkte2)
-        {
-            Console.WriteLine("Siegerehrung");
-            Console.WriteLine($"   '{strategie1Name}' hat {punkte1} Punkte erhalten.");
-            Console.WriteLine($"   '{strategie2Name}' hat {punkte2} Punkte erhalten.");
-            WriteLeerzeile();
-
-            if (punkte1 == punkte2)
-            {
-                Console.WriteLine("Unentschieden zwischen beiden Strategien!");
-            }
-            else
-            {
-                Console.WriteLine("SIEGER: Strategie '{0}'", (punkte1 < punkte2 ? strategie1Name : strategie2Name));
             }
         }
 
