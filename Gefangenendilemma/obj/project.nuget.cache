@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JnQLB0sDsYHYiO4vRXUAUzTg/KZPgv1Ca+vcuzxKu95sFz1A04898Q+FhIHSN+vkPVaG9IQSP+ieN56UJQYsxA==",
+  "dgSpecHash": "r18IZViwVs5ZdeFzOcANyFGCNxo3yAuESa68pq6ZoFLAIrMMB4o5sq84Y4QHzI3shk0karTGLeUyws7NVIM6zA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Chewbacca\\Downloads\\GefangenendilemmaV2\\Gefangenendilemma\\Gefangenendilemma.csproj",
+  "projectFilePath": "D:\\Projects\\Schuhkonfigurator\\GefangenenDings\\Gefangenendilemma\\Gefangenendilemma.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Chewbacca\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
   ],

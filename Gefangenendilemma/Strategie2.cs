@@ -10,7 +10,7 @@ namespace Gefangenendilemma
         /// <returns></returns>
         public override string Name()
         {
-            return "Bitte anpassen";
+            return "Mistrauen";
         }
 
         /// <summary>
@@ -19,7 +19,7 @@ namespace Gefangenendilemma
         /// <returns></returns>
         public override string Autor()
         {
-            return "Bitte anpassen";
+            return "Sören Stabenow";
         }
 
         /// <summary>
@@ -29,7 +29,6 @@ namespace Gefangenendilemma
         /// <param name="schwere">Schwere des Verbrechen (VLeicht = 0, VMittel = 1, VSchwer = 2)</param>
         public override void Start(int runde, int schwere)
         {
-            //Vorbereitungen für Start
         }
 
         /// <summary>
@@ -39,9 +38,11 @@ namespace Gefangenendilemma
         /// <returns>Gibt die eigene Reaktion für diese Runde zurück (Kooperieren = 0, Verrat = 1)</returns>
         public override int Verhoer(int letzteReaktion)
         {
-            //Strategie hier ergänzen
-
-            return Verrat;
+            // Verrät in der ersten Runde und kooperiert dann immer.
+            if (letzteReaktion == NochNichtVerhoert)
+                return Verrat;
+            else
+                return Kooperieren;
         }
     }
 }
