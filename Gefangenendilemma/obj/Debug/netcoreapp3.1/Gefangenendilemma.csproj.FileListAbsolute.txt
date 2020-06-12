@@ -11,3 +11,16 @@ C:\Users\Chewbacca\Downloads\GefangenendilemmaV2\Gefangenendilemma\obj\Debug\net
 C:\Users\Chewbacca\Downloads\GefangenendilemmaV2\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.dll
 C:\Users\Chewbacca\Downloads\GefangenendilemmaV2\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.pdb
 C:\Users\Chewbacca\Downloads\GefangenendilemmaV2\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.genruntimeconfig.cache
+D:\Projects\Schuhkonfigurator\GefangenenDings\Gefangenendilemma\bin\Debug\netcoreapp3.1\Gefangenendilemma.exe
+D:\Projects\Schuhkonfigurator\GefangenenDings\Gefangenendilemma\bin\Debug\netcoreapp3.1\Gefangenendilemma.deps.json
+D:\Projects\Schuhkonfigurator\GefangenenDings\Gefangenendilemma\bin\Debug\netcoreapp3.1\Gefangenendilemma.runtimeconfig.json
+D:\Projects\Schuhkonfigurator\GefangenenDings\Gefangenendilemma\bin\Debug\netcoreapp3.1\Gefangenendilemma.runtimeconfig.dev.json
+D:\Projects\Schuhkonfigurator\GefangenenDings\Gefangenendilemma\bin\Debug\netcoreapp3.1\Gefangenendilemma.dll
+D:\Projects\Schuhkonfigurator\GefangenenDings\Gefangenendilemma\bin\Debug\netcoreapp3.1\Gefangenendilemma.pdb
+D:\Projects\Schuhkonfigurator\GefangenenDings\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.csprojAssemblyReference.cache
+D:\Projects\Schuhkonfigurator\GefangenenDings\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.AssemblyInfoInputs.cache
+D:\Projects\Schuhkonfigurator\GefangenenDings\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.AssemblyInfo.cs
+D:\Projects\Schuhkonfigurator\GefangenenDings\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.csproj.CoreCompileInputs.cache
+D:\Projects\Schuhkonfigurator\GefangenenDings\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.dll
+D:\Projects\Schuhkonfigurator\GefangenenDings\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.pdb
+D:\Projects\Schuhkonfigurator\GefangenenDings\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.genruntimeconfig.cache
