@@ -413,7 +413,7 @@ namespace Gefangenendilemma
             ranglisteList.Sort((pair1, pair2) => pair1.Value.CompareTo(pair2.Value));
 
             int platz = 1;
-            foreach (KeyValuePair<BasisStrategie, int> rang in rangliste)
+            foreach (KeyValuePair<BasisStrategie, int> rang in ranglisteList)
             {
                 Console.WriteLine($"   Platz {platz}: Strategie '{rang.Key.Name()}' mit {rang.Value} Punkten");
                 platz++;
