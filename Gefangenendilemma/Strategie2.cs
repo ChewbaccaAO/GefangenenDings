@@ -11,7 +11,7 @@ namespace Gefangenendilemma
         /// <returns></returns>
         public override string Name()
         {
-            return "Mistrauen";
+            return "Random";
         }
 
         /// <summary>
@@ -39,11 +39,19 @@ namespace Gefangenendilemma
         /// <returns>Gibt die eigene Reaktion für diese Runde zurück (Kooperieren = 0, Verrat = 1)</returns>
         public override int Verhoer(int letzteReaktion)
         {
-            // Verrät in der ersten Runde und kooperiert dann immer.
-            if (letzteReaktion == NochNichtVerhoert)
+            // Entscheidet nach einem 50/50 Prinzip.
+
+            // Generiert eine Zufallszahl zwischen 0 und 100.
+            Random r = new Random();
+            int randomInt = r.Next(0, 100);
+
+            // Wenn größter gleich 50, wird verraten, wenn kleiner 50, wird kooperiert.
+            // Trifft aus irgendeinem Grund nichts zu, wird verraten.
+            if (randomInt >= 50)
                 return Verrat;
-            else
+            if (randomInt < 50)
                 return Kooperieren;
+            return Verrat;
         }
     }
 }
