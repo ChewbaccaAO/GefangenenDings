@@ -20,7 +20,7 @@ namespace Gefangenendilemma.Basis
             int zahl;
             do
             {
-                Console.WriteLine(text);
+                Console.Write(text);
             } while (!Int32.TryParse(Console.ReadLine(), out zahl));
 
             return zahl;
