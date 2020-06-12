@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Chewbacca\\Downloads\\GefangenendilemmaV2\\Gefangenendilemma\\Gefangenendilemma.csproj": {}
+    "D:\\Projects\\Schuhkonfigurator\\GefangenenDings\\Gefangenendilemma\\Gefangenendilemma.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Chewbacca\\Downloads\\GefangenendilemmaV2\\Gefangenendilemma\\Gefangenendilemma.csproj": {
+    "D:\\Projects\\Schuhkonfigurator\\GefangenenDings\\Gefangenendilemma\\Gefangenendilemma.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Chewbacca\\Downloads\\GefangenendilemmaV2\\Gefangenendilemma\\Gefangenendilemma.csproj",
+        "projectUniqueName": "D:\\Projects\\Schuhkonfigurator\\GefangenenDings\\Gefangenendilemma\\Gefangenendilemma.csproj",
         "projectName": "Gefangenendilemma",
-        "projectPath": "C:\\Users\\Chewbacca\\Downloads\\GefangenendilemmaV2\\Gefangenendilemma\\Gefangenendilemma.csproj",
+        "projectPath": "D:\\Projects\\Schuhkonfigurator\\GefangenenDings\\Gefangenendilemma\\Gefangenendilemma.csproj",
         "packagesPath": "C:\\Users\\Chewbacca\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Chewbacca\\Downloads\\GefangenendilemmaV2\\Gefangenendilemma\\obj\\",
+        "outputPath": "D:\\Projects\\Schuhkonfigurator\\GefangenenDings\\Gefangenendilemma\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
