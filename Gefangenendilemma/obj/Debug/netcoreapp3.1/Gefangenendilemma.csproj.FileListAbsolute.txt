@@ -24,3 +24,16 @@ D:\Projects\Schuhkonfigurator\GefangenenDings\Gefangenendilemma\obj\Debug\netcor
 D:\Projects\Schuhkonfigurator\GefangenenDings\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.dll
 D:\Projects\Schuhkonfigurator\GefangenenDings\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.pdb
 D:\Projects\Schuhkonfigurator\GefangenenDings\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.genruntimeconfig.cache
+C:\Users\nils\Desktop\Ausbildung\OSZ IMT\AS\PROJEKT\Gefangendilemma\Gefangenendilemma\bin\Debug\netcoreapp3.1\Gefangenendilemma.exe
+C:\Users\nils\Desktop\Ausbildung\OSZ IMT\AS\PROJEKT\Gefangendilemma\Gefangenendilemma\bin\Debug\netcoreapp3.1\Gefangenendilemma.deps.json
+C:\Users\nils\Desktop\Ausbildung\OSZ IMT\AS\PROJEKT\Gefangendilemma\Gefangenendilemma\bin\Debug\netcoreapp3.1\Gefangenendilemma.runtimeconfig.json
+C:\Users\nils\Desktop\Ausbildung\OSZ IMT\AS\PROJEKT\Gefangendilemma\Gefangenendilemma\bin\Debug\netcoreapp3.1\Gefangenendilemma.runtimeconfig.dev.json
+C:\Users\nils\Desktop\Ausbildung\OSZ IMT\AS\PROJEKT\Gefangendilemma\Gefangenendilemma\bin\Debug\netcoreapp3.1\Gefangenendilemma.dll
+C:\Users\nils\Desktop\Ausbildung\OSZ IMT\AS\PROJEKT\Gefangendilemma\Gefangenendilemma\bin\Debug\netcoreapp3.1\Gefangenendilemma.pdb
+C:\Users\nils\Desktop\Ausbildung\OSZ IMT\AS\PROJEKT\Gefangendilemma\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.csprojAssemblyReference.cache
+C:\Users\nils\Desktop\Ausbildung\OSZ IMT\AS\PROJEKT\Gefangendilemma\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.AssemblyInfoInputs.cache
+C:\Users\nils\Desktop\Ausbildung\OSZ IMT\AS\PROJEKT\Gefangendilemma\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.AssemblyInfo.cs
+C:\Users\nils\Desktop\Ausbildung\OSZ IMT\AS\PROJEKT\Gefangendilemma\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.csproj.CoreCompileInputs.cache
+C:\Users\nils\Desktop\Ausbildung\OSZ IMT\AS\PROJEKT\Gefangendilemma\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.dll
+C:\Users\nils\Desktop\Ausbildung\OSZ IMT\AS\PROJEKT\Gefangendilemma\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.pdb
+C:\Users\nils\Desktop\Ausbildung\OSZ IMT\AS\PROJEKT\Gefangendilemma\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.genruntimeconfig.cache
