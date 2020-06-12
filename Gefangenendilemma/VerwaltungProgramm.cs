@@ -54,6 +54,7 @@ namespace Gefangenendilemma
             _strategien.Add(new VerrateImmerStrategie());
             _strategien.Add(new Strategie1());
             _strategien.Add(new Strategie2());
+            _strategien.Add(new Strategie3());
 
             // Öffnen des Hauptmenüs und verwalten der Eingabe
             HauptMenu();
