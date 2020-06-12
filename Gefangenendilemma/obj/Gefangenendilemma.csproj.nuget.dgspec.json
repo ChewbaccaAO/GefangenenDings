@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\Schuhkonfigurator\\GefangenenDings\\Gefangenendilemma\\Gefangenendilemma.csproj": {}
+    "C:\\Users\\nils\\Desktop\\Ausbildung\\OSZ IMT\\AS\\PROJEKT\\Gefangendilemma\\Gefangenendilemma\\Gefangenendilemma.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\Schuhkonfigurator\\GefangenenDings\\Gefangenendilemma\\Gefangenendilemma.csproj": {
+    "C:\\Users\\nils\\Desktop\\Ausbildung\\OSZ IMT\\AS\\PROJEKT\\Gefangendilemma\\Gefangenendilemma\\Gefangenendilemma.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Schuhkonfigurator\\GefangenenDings\\Gefangenendilemma\\Gefangenendilemma.csproj",
+        "projectUniqueName": "C:\\Users\\nils\\Desktop\\Ausbildung\\OSZ IMT\\AS\\PROJEKT\\Gefangendilemma\\Gefangenendilemma\\Gefangenendilemma.csproj",
         "projectName": "Gefangenendilemma",
-        "projectPath": "D:\\Projects\\Schuhkonfigurator\\GefangenenDings\\Gefangenendilemma\\Gefangenendilemma.csproj",
-        "packagesPath": "C:\\Users\\Chewbacca\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Schuhkonfigurator\\GefangenenDings\\Gefangenendilemma\\obj\\",
+        "projectPath": "C:\\Users\\nils\\Desktop\\Ausbildung\\OSZ IMT\\AS\\PROJEKT\\Gefangendilemma\\Gefangenendilemma\\Gefangenendilemma.csproj",
+        "packagesPath": "C:\\Users\\nils\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nils\\Desktop\\Ausbildung\\OSZ IMT\\AS\\PROJEKT\\Gefangendilemma\\Gefangenendilemma\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Chewbacca\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\nils\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -51,18 +47,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.2, 3.1.2]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
